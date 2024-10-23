@@ -1,0 +1,13 @@
+version: '3.8'  # Hapus baris ini jika mendapat peringatan
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "4173:4173"  # Ubah dari 5173 ke 4173
+    command: ["npm", "run", "preview", "--", "--host"]
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"

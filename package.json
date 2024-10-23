@@ -1,0 +1,22 @@
+{
+  "name": "aplikasi-pertamaku",
+  "version": "1.0.0",
+  "description": "Dibuat menggunakan Vue + ExpressJS + Docker",
+  "main": "index.js",
+  "dependencies": {
+    "esbuild": "^0.21.5",
+    "nanoid": "^3.3.7",
+    "picocolors": "^1.1.1",
+    "postcss": "^8.4.47",
+    "rollup": "^4.24.0",
+    "source-map-js": "^1.2.1",
+    "vite": "^5.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
