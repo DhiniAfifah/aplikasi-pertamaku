@@ -7,19 +7,37 @@ const users = ref(null);
 const newEmail = ref('');
 
 const getUser = async () => {
-  const response = await fetch(`http://localhost:3000/api/user/${userId.value}`);
-  users.value = await response.json();
+  try {
+    const response = await fetch(`http://localhost:3000/api/user/${userId.value}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch user data'); 
+    }
+    users.value = await response.json();
+  } catch (error) {
+    console.error(error);
+    alert('Error fetching user data: ' + error.message); 
+  }
 };
 
 const changeEmail = async () => {
-  await fetch('http://localhost:3000/api/change-email', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: `email=${newEmail.value}`,
-  });
+  try {
+    const response = await fetch(`http://localhost:3000/api/user/${userId.value}/change-email`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `email=${newEmail.value}`,
+    });
+    if (!response.ok) {
+      throw new Error('Failed to change email'); 
+    }
+    alert('Email updated successfully');
+  } catch (error) {
+    console.error(error);
+    alert('Error changing email: ' + error.message); // Memberikan feedback kepada pengguna
+  }
 };
+
 </script>
 
 <template>
